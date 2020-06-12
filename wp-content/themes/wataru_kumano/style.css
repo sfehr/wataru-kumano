@@ -998,7 +998,7 @@ textarea {
 	--nav-bar: 60px;
 	
 	/* Grid */
-	--grid-column: 10%;
+	--grid-column: 10vw;
 	--grid-gap: 15px;
 	--grid-setting: repeat( 10, 1fr );
   
@@ -1050,6 +1050,7 @@ h1
 {
 	font-size: var(--font-size-m);
 	font-weight: 400;
+	line-height: var(--font-lh-m);
 }
 
 
@@ -1248,7 +1249,11 @@ h1
 .project{
 	display: grid;
 	grid-template-columns: var(--grid-setting);
-	padding-bottom: calc( var(--nav-bar) * 6 );
+	padding: calc( var(--nav-bar) * 3 ) 0;
+}
+
+.project:nth-child(1){
+	padding-top: unset;
 }
 
 .project:last-of-type{
@@ -1277,6 +1282,10 @@ h1
 
 .portrait.itm-l{
 	grid-area: auto / auto / auto / span 5;
+}
+
+.right{
+	padding-left: var(--grid-column);	
 }
 
 .right.itm-s{
