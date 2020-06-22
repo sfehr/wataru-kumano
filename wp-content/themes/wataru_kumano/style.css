@@ -1134,10 +1134,6 @@ h1
 	grid-gap: var(--grid-gap);
 }
 
-.nav-profile-container{
-/*	padding-left: var(--space-m); */
-}
-
 .expand-navigation .project-navigation{
 	display: block;
 	height: 100%;
@@ -1178,7 +1174,7 @@ h1
 .link-context{
 	padding-right: var(--space-m);
 	text-align: right;
-	grid-area: auto / -3 / auto / -1;
+	grid-area: auto / -4 / auto / -1;
 }
 
 .nav-content-container .project-content{
@@ -1237,6 +1233,16 @@ h1
 	max-height: 75% !important; 
 }
 
+.project-content,
+.profile-address
+{
+	padding-bottom: calc( var(--nav-bar) * 1.5 );
+}
+
+.project-navigation .menu-container{
+	padding-bottom: 60px;
+}
+
 
 /*--------------------------------------------------------------
 # Content
@@ -1249,11 +1255,11 @@ h1
 .project{
 	display: grid;
 	grid-template-columns: var(--grid-setting);
-	padding: calc( var(--nav-bar) * 3 ) 0;
+	margin: calc( var(--nav-bar) * 3 ) 0;
 }
 
 .project:nth-child(1){
-	padding-top: unset;
+	margin-top: unset;
 }
 
 .project:last-of-type{
@@ -1285,7 +1291,7 @@ h1
 }
 
 .right{
-	padding-left: var(--grid-column);	
+	margin-left: var(--grid-column);	
 }
 
 .right.itm-s{
@@ -1299,7 +1305,7 @@ h1
 .right.itm-l{
 	grid-area: auto / -9 / auto / -1;
 }
-
+/*
 .itm-s + .right.itm-m{
 	margin-left: 10vw;
 }
@@ -1307,9 +1313,13 @@ h1
 .itm-m + .right.itm-s{
 	margin-left: 10vw;
 }
-
+*/
 .bottom{
 	align-self: end;
+}
+
+.center{
+	align-self: center;
 }
 
 .itm{
@@ -1335,6 +1345,24 @@ h1
 # Media Queries
 ---------------------------------------------------------------*/
 
+@media screen and (max-width: 1600px) {
+
+	.profile-image{
+		grid-area: auto / auto / span 3 / span 2;
+	}
+	
+	.profile-content{
+		grid-area: auto / 3 / auto / -1;
+		margin-right: var(--space-m);
+	}
+
+	.profile-address{
+		grid-area: auto / 3 / auto / span 3;
+	}	
+	
+}
+
+
 @media screen and (max-width: 800px) {
 	
 :root {
@@ -1346,8 +1374,8 @@ h1
 	
 	--grid-setting: repeat( 5, 1fr );
 	
-	--font-size-m: 18px;
-	--font-lh-m: 135%;	
+	--font-size-m: 16px;
+	--font-lh-m: 130%;	
 }	
 	
 	.project-navigation,
@@ -1451,13 +1479,34 @@ h1
 	
 	.right.portrait.itm-s,
 	.right.portrait.itm-m,
-	.right.portrait.itm-l
+	.right.portrait.itm-l,
+	.right.landscape.itm-s,
+	.right.landscape.itm-m,
+	.right.landscape.itm-l	
 	{
 		grid-area: auto / -8 / auto / -1; 
 	}
 	
 	.expand-title:hover{
 		max-height: 75% !important;	
+	}
+	
+	.profile-image{
+		grid-area: auto / auto / auto / span 3;
+	}
+	
+	.profile-content,
+	.profile-address	
+	{
+		margin: 0 var(--space-m);
+	}
+	
+	.profile-content{
+		grid-area: auto / 1 / auto / -1;
+	}	
+	
+	.profile-address{
+		grid-area: auto / 1 / auto / span 3;
 	}	
 	
 }

@@ -84,8 +84,6 @@ jQuery( document ).ready( function( $ ) {
 	
 	// NAV ACTIVE STATE
 	let mainNavLinks = document.querySelectorAll( '.anchor-link' );
-//	let mainSections = document.querySelectorAll( site_sections );
-//	let cur = [];
 
 	window.addEventListener( 'scroll', event => {
 		let fromTop = window.scrollY;
@@ -96,8 +94,6 @@ jQuery( document ).ready( function( $ ) {
 				link.classList.add( 'current' );
 				// update project index with current navigation position
 				project_index = $( link ).parent().index();
-				
-//				console.log( $( link ).parent().index() );
 								
 				update_content();
 			} 
@@ -111,8 +107,26 @@ jQuery( document ).ready( function( $ ) {
 
 	// NAV BAR HOVER INTERACTION
 	// Expand the nav bar on hover (or click for mobile)
-	nav_site_logo.add( nav_project_title ).add( nav_project_type ).add( nav_project_year ).on( 'mouseenter click', function(){
-
+	nav_site_logo.add( nav_project_title ).add( nav_project_type ).add( nav_project_year ).on( 'mouseenter click', function( e ){
+		
+		// collapse/close when active nav bar element is clicked.
+		if( e.type == 'click' ){ 
+		
+			if( $( this ).is( nav_site_logo ) && $( '#nav-bar' ).hasClass( 'expand-profile' ) ){ 
+				sf_collapse_nav_bar();
+				return;
+			}
+			if( $( this ).is( nav_project_title ) && $( '#nav-bar' ).hasClass( 'expand-title' ) ){ 
+				sf_collapse_nav_bar();
+				return;
+			}
+			if( ( $( this ).is( nav_project_type ) && $( '#nav-bar' ).hasClass( 'expand-navigation' ) ) || ( $( this ).is( nav_project_year ) && $( '#nav-bar' ).hasClass( 'expand-navigation' ) ) ){ 
+				sf_collapse_nav_bar();
+				return;
+			}					
+			
+		}			
+				
 		// Add expand class, update content
 		if( $( this ).is( nav_site_logo ) ){
 			$( '#nav-bar' ).addClass( 'expand-profile' );
@@ -131,11 +145,13 @@ jQuery( document ).ready( function( $ ) {
 	});
 	
 	// Collapse the nav bar on leave with a delay of 500ms (for smooth animation in css)
-	$( '#nav-bar' ).on( 'mouseleave', function(){
+	$( '#nav-bar' ).on( 'mouseleave', sf_collapse_nav_bar );
+	
+	function sf_collapse_nav_bar(){
 		setTimeout( function(){
 			$( '#nav-bar' ).removeClass( 'expand-title expand-profile expand-navigation' );
-		}, 250 );		
-	});	
+		}, 250 );				
+	}
 
 	
 	
@@ -156,11 +172,14 @@ jQuery( document ).ready( function( $ ) {
 	
 	$( '.itm' ).each( function(){
 		
-		var rand =  Math.floor( ( Math.random() * 2 ) );
+		var rand =  Math.floor( ( Math.random() * 3 ) );
 		
 		if( 1 == rand ){
 			$( this ).addClass( 'bottom' );
 		}
+		if( 2 == rand ){
+			$( this ).addClass( 'center' );
+		}		
 	});	
 	
 

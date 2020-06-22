@@ -321,7 +321,7 @@ function wk_get_custom_fields( $class, $theme_img_size = '' ) {
 		// MARKUP
 		// final check if a value exists
 		if ( !empty( $media ) ){
-			print '<div class="' . $class . ' itm-' . $img_size_class . ' ' . implode( '', $image_orientation ) . '">' . implode( '', $media ) . '</div><!-- .' . $class . ' -->';
+			print '<div class="' . $class . ' itm-' . $img_size_class . ' ' . implode( ' ', $image_orientation ) . '">' . implode( '', $media ) . '</div><!-- .' . $class . ' -->';
 		}
 	}
 }
@@ -367,9 +367,9 @@ function wk_profile_text( $post_id ){
 	
 	$prefix = 'wk_profile_';
 	$meta_key = 'address';
-	$text = get_post_meta( $post_id, $prefix . $meta_key, true );
+	$text = wpautop( get_post_meta( $post_id, $prefix . $meta_key, true ) );
 	
-	return esc_html( $text );
+	return $text;
 }
 
 

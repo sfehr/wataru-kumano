@@ -51,7 +51,7 @@ get_header();
 				<div class="profile-address"><?php echo wk_profile_text( $page->ID ); ?></div>
 			</div><!-- End profile -->
 			<div class="nav-bar-container">
-				<div class="logo">Kumano</div>
+				<div class="logo">kumano</div>
 				<div class="project-info">
 					<div class="project-title"><h1></h1></div>
 					<div class="project-type"></div>

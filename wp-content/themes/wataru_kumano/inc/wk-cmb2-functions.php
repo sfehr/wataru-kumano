@@ -122,7 +122,10 @@ function wk_profile_fields() {
 	$wk_profile_metabox->add_field( array(
 		'name' => esc_html__( 'Address', wk_get_theme_text_domain() ),
 		'id'   => $prefix . 'address',
-		'type' => 'textarea'
+		'type' => 'wysiwyg',
+		'options' => array(
+				'wpautop' => true, // use wpautop?
+		),
 	) );	
 	
 }
