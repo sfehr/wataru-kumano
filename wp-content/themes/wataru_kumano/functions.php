@@ -257,6 +257,28 @@ function wk_custom_head() {
 	// TYPEFACE (EN)
 	echo '<link rel="stylesheet" href="https://use.typekit.net/wlv6frg.css">';	
 	
+	// Social Media
+	echo '
+	<!-- Primary Meta Tags -->
+	<title>kumano</title>
+	<meta name="title" content="kumano">
+	<meta name="description" content="kumano design studio">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://watarukumano.jp/">
+	<meta property="og:title" content="kumano">
+	<meta property="og:description" content="kumano design studio">
+	<meta property="og:image" content="https://watarukumano.jp/wp-content/uploads/2021/02/WK_Logo_og.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://watarukumano.jp/">
+	<meta property="twitter:title" content="kumano">
+	<meta property="twitter:description" content="kumano design studio">
+	<meta property="twitter:image" content="https://watarukumano.jp/wp-content/uploads/2021/02/WK_Logo_og.png">
+	';	
+	
 }
 
 add_action( 'wp_head', 'wk_custom_head' );
